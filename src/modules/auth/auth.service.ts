@@ -1,6 +1,7 @@
 import { Injectable, InternalServerErrorException, UnauthorizedException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { jwtConstants } from 'src/mock/constants';
+import { User } from '../users/entities/user.entity';
 import { UsersService } from '../users/users.service';
 
 
@@ -24,7 +25,7 @@ export class AuthService {
       ret = new UnauthorizedException('Usuário não autorizado');
 
 
-      let user: any = {};      
+      let user: User = null;      
       const users = await this.userService.findBy({email: email.toLowerCase()});
       user = users[0] || null;
 
@@ -42,7 +43,15 @@ export class AuthService {
       const match = password === hash;
       if (match) {
 
-        const payload = { iss:jwtConstants.iss, aud:jwtConstants.aud, sub: user.email, username: user.email };
+        const payload = { 
+          iss:jwtConstants.iss, 
+          aud:jwtConstants.aud, 
+          sub: user.email, 
+        };
+        payload[jwtConstants.aud] = {
+          user_id: user.id,
+          email: user.email
+        }
         const token = await this.jwtService.signAsync(payload);
 
         ret = { token };
