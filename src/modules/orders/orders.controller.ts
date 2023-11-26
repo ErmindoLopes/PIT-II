@@ -1,7 +1,8 @@
-import { BadRequestException, Body, Controller, Delete, Get, HttpException, HttpStatus, Param, Post, UseGuards } from '@nestjs/common';
+import { BadRequestException, Body, Controller, Delete, Get, HttpException, HttpStatus, Param, Patch, Post, UseGuards } from '@nestjs/common';
 import { AuthGuard } from 'src/guards/auth.guard';
 import { OrdersService } from 'src/modules/orders/orders.service';
 import { CreateOrderDto } from './dto/create-order.dto';
+import { UpdateOrderDto } from './dto/update-order.dto';
 
 @Controller('orders')
 export class OrdersController {
@@ -31,6 +32,30 @@ export class OrdersController {
         else
             return reqResp;
     }
+
+    @Get(':id')
+    @UseGuards(AuthGuard)
+    async get(
+        @Param('id') id: number
+    ) {
+
+        let reqResp: any = new BadRequestException();
+
+        try {
+
+            reqResp = await this.ordersService.findOne(id);
+
+        } catch (error) {
+            console.log(error);
+            reqResp = new HttpException({ status: HttpStatus.BAD_REQUEST, error: 'Erro na requisição', }, HttpStatus.BAD_REQUEST, { cause: error });
+        }
+
+        if (reqResp instanceof HttpException)
+            throw reqResp;
+        else
+            return reqResp;
+    }
+
 
     @Post('')
     @UseGuards(AuthGuard)
@@ -85,18 +110,27 @@ export class OrdersController {
         else
             return reqResp;
     }
+   
 
-    @Get(':id')
+    @Patch('')
     @UseGuards(AuthGuard)
-    async get(
-        @Param('id') id: number
+    async update(
+        @Body() body: UpdateOrderDto,
     ) {
 
         let reqResp: any = new BadRequestException();
 
         try {
 
-            reqResp = await this.ordersService.findOne(id);
+
+            // verifica se tem body
+            /* **************************************************************** */
+            if (!body) {
+                return reqResp;
+            }
+            /* **************************************************************** */
+
+            reqResp = await this.ordersService.update(body.id, body);
 
         } catch (error) {
             console.log(error);

@@ -1,7 +1,7 @@
 import { User } from "src/modules/users/entities/user.entity";
 import { Item } from "../entities/item.entity";
 
-export class CreateOrderDto {
+export class CreateOrderDto {  
   data: Date;
   status: number = 1;
   entregue: boolean = false;
