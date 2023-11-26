@@ -1,0 +1,26 @@
+{
+    "version": "0.2.0",
+    "configurations": [      
+      {
+        "name": "Debug: back-web",
+        "type": "node",
+        "request": "launch",  
+        "localRoot": "${workspaceFolder}",    
+        "runtimeExecutable": "npm",
+        "runtimeArgs": [
+          "run",
+          "start:debug",
+          "--",
+          "--inspect-brk"
+        ],
+        "console": "integratedTerminal",
+        "restart": true,
+        "protocol": "auto",
+        "port": 9229,
+        "autoAttachChildProcesses": true
+      },      
+    ],
+    "compounds": [
+      
+    ]
+  }
