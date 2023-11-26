@@ -1,5 +1,6 @@
 import { Injectable, InternalServerErrorException, UnauthorizedException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
+import { jwtConstants } from 'src/mock/constants';
 import { UsersService } from '../users/users.service';
 
 
@@ -41,7 +42,7 @@ export class AuthService {
       const match = password === hash;
       if (match) {
 
-        const payload = { sub: user.email, username: user.email };
+        const payload = { iss:jwtConstants.iss, aud:jwtConstants.aud, sub: user.email, username: user.email };
         const token = await this.jwtService.signAsync(payload);
 
         ret = { token };
