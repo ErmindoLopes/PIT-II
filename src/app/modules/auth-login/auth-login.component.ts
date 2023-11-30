@@ -67,6 +67,8 @@ export class AuthLoginComponent implements OnInit, OnDestroy {
 
     this.agentId = this.authService.getAgentId();
 
+    this.isLoaded$ = of(true);
+
   }
 
 
