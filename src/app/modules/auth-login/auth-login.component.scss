@@ -10,4 +10,63 @@
   position: relative;
 
   z-index: 0;
+
+  background-image: url("/assets/img/login-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+:host {
+  display: flex;
+  justify-content: center;
+}
+
+mat-card{
+  width: 40%;
+  min-height: 43%;
+  padding: 2rem;
+
+  background-color: rgba($color: #fff, $alpha: 0.9);
+}
+
+.mat-mdc-form-field {
+  width: 100%;
+}
+
+mat-card-title,
+mat-card-content {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+mat-card-title{
+  margin-bottom: 5rem;
+}
+
+mat-card-footer{
+  position: absolute;
+  bottom: 1rem;
+}
+
+.error {
+  padding: 16px;
+  width: 300px;
+  color: white;
+  background-color: red;
+}
+
+.button {
+  display: flex;
+  justify-content: flex-end;
+}
+
+input{
+  width: 100%;
+}
+
+h1{
+  margin-bottom: 2rem;
+  color: rgba($color: #000000, $alpha: .8);
 }

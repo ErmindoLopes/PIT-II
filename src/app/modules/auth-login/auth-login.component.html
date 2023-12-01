@@ -4,6 +4,31 @@
 
 <div class="login-page-wrap" *ngIf="this.isLoaded$ | async; else loading">
 
-ddadasdsad
+  <h1>CUPCAKE's Paradise</h1>
+
+  <mat-card>
+    <mat-card-title>Login</mat-card-title>
+    <mat-card-content>
+      <p>
+        <mat-form-field>
+          <input type="text" #email matInput placeholder="Email">
+        </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field>
+          <input type="password" #password matInput placeholder="Password" >
+        </mat-form-field>
+      </p>
+
+
+
+      <div class="button">
+        <button mat-button (click)="emailLogin({email:email.value, password:password.value})">Login</button>
+      </div>
+    </mat-card-content>
+    <mat-card-footer><small>usuário de teste: a@a.com | senha: 123456</small></mat-card-footer>
+  </mat-card>
+
 
 </div>

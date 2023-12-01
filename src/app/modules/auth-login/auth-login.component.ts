@@ -25,6 +25,8 @@ export class AuthLoginComponent implements OnInit, OnDestroy {
 
 
 
+
+
   constructor(
     private router: Router,
     private authService: AuthService,
@@ -66,7 +68,7 @@ export class AuthLoginComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
 
     this.agentId = this.authService.getAgentId();
-
+    this.isLoaded = true;
     this.isLoaded$ = of(true);
 
   }

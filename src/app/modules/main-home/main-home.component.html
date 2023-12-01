@@ -1,0 +1,19 @@
+<div class="main-page-wrap">
+
+  <div class="left-panel">
+    <ul>
+      <li (click)="changeWindow('cupcakes')"><mat-icon>cake</mat-icon> Lista de Cupcakes</li>
+      <li (click)="changeWindow('orders')"><mat-icon>receipt</mat-icon> Lista de Pedidos</li>
+
+    </ul>
+
+  </div>
+
+  <div class="right-panel">
+
+    <app-list-cupcakes *ngIf="activeWindow === 'cupcakes'"></app-list-cupcakes>
+    <app-list-orders *ngIf="activeWindow === 'orders'"></app-list-orders>
+
+  </div>
+
+</div>

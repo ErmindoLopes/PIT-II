@@ -1,0 +1,83 @@
+:host{
+  width: 100vw;
+  height: 100vh;
+}
+
+
+.main-page-wrap{
+
+  width: calc(100% - 2rem);
+  height: calc(100% - 2rem);
+
+  padding: 1rem;
+
+  background-image: url("/assets/img/login-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  display: flex;
+
+
+  .left-panel{
+
+    width: 20%;
+    display: flex;
+
+    background-color: rgba(32,32,32,0.9);
+    border-top-left-radius: 5px ;
+    border-bottom-left-radius: 5px ;
+
+
+    ul{
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+
+      li{
+
+        height: 2rem;
+        background-color: rgba($color: #cecece, $alpha: .5);
+        margin: 1rem;
+        padding: 1rem;
+
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+
+        color: whitesmoke;
+
+        border-radius: 4px;
+
+        cursor: pointer;
+
+        .mat-icon{
+          margin-right: 15px;
+        }
+
+        &:hover{
+          background-color: rgba($color: #cecece, $alpha: .9);
+          color: darken($color: #cecece, $amount: 50);
+        }
+      }
+    }
+
+
+  }
+
+  .right-panel{
+    background-color: darksalmon;
+
+    display: flex;
+    flex:  1;
+
+    background-color: rgba(32,32,32,0.8);
+
+    border-top-right-radius: 5px ;
+    border-bottom-right-radius: 5px ;
+
+    padding: 1rem;
+
+  }
+}
