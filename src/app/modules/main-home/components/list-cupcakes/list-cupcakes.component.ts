@@ -79,8 +79,42 @@ export class ListCupcakesComponent implements OnInit {
 
     this.mainService
       .delCupcake(item)
-      .then((ret) => {
-        this.startLoad();
+      .then(async (ret) => {
+        if(ret instanceof Error){
+          const isOk = await new Promise((resolve, reject) => {
+            const options = {
+              title: "Erro na exclusão",
+              html: ret.message,
+              icon: 'error' as SweetAlertIcon,
+              allowOutsideClick: false,
+              showCancelButton: false,
+              confirmButtonText: 'Ok',
+              cancelButtonText: 'Não',
+              customClass: {
+                confirmButton: 'icon-btn hover-green btn-swal-confirm',
+                cancelButton: 'icon-btn btn-swal-cancel',
+              },
+              buttonsStyling: false, // css custom
+              reverseButtons: true, // ordem dos botoes
+            };
+
+            Swal
+              .fire(options)
+              .then((result) => {
+
+                if (result.value) {
+                  resolve(true);
+                } else if (result.dismiss === Swal.DismissReason.cancel) {
+                  resolve(false);
+                }
+
+              });
+
+          });
+        }
+        else{
+          this.startLoad();
+        }
       })
       .catch((rej) => {
         console.log(rej);

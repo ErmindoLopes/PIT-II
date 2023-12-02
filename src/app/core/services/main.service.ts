@@ -58,6 +58,7 @@ export class MainService{
       })
       .catch((err) => {
         console.log(err);
+        return new Error('Esse produto não pode ser excluído pois já foi utilizado em um pedido.');
       });
 
     return ret;
@@ -80,6 +81,24 @@ export class MainService{
       });
 
     return ret;
+
+  }
+
+  async getOrderList(): Promise<any> {
+
+    const auth = { 'authorization': `bearer `+ this.sessionStorage.retrieve('userToken') };
+
+    let lista: any[] = [];
+    const url = `${gateway}/orders/list`;
+    lista = await lastValueFrom(this.http.get(url, { headers: { ...auth } }))
+      .then(async (resp: any) => {
+        return resp;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+    return lista;
 
   }
 
