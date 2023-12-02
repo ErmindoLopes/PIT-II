@@ -22,9 +22,7 @@ export class AuthController {
 
     try {
 
-
-      reqResp = await this.authService.login({ ...loginRequest });
-      
+      reqResp = await this.authService.login({ ...loginRequest });      
 
     } catch (error) {
       console.log(error);

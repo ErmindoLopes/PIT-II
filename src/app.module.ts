@@ -7,6 +7,7 @@ import { AuthController } from './modules/auth/auth.controller';
 import { AuthService } from './modules/auth/auth.service';
 import { CupcakesController } from './modules/cupcakes/cupcakes.controller';
 import { CupcakesModule } from './modules/cupcakes/cupcakes.module';
+import { GeneralController } from './modules/general/general.controller';
 import { OrdersController } from './modules/orders/orders.controller';
 import { OrdersModule } from './modules/orders/orders.module';
 import { UsersModule } from './modules/users/users.module';
@@ -31,6 +32,7 @@ import { config } from './ormconfig';
     AuthController,
     CupcakesController,
     OrdersController,
+    GeneralController,
   ],
   providers: [
     AppService,
