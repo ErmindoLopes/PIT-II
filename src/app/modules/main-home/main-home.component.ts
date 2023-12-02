@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MainService } from '@core/services/main.service';
 
 @Component({
   selector: 'app-main-home',
@@ -9,10 +10,21 @@ export class MainHomeComponent {
 
   activeWindow: string = 'orders';
 
+  /**
+   *
+   */
+  constructor(
+    private mainService: MainService
+  ) {}
+
   changeWindow(window:string) {
 
     this.activeWindow = window;
 
+  }
+
+  logout(){
+    this.mainService.logout();
   }
 
 }

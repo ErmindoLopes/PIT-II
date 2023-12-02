@@ -6,17 +6,18 @@
 
   <div class="list-content">
 
-    <div class="cupcake-list-item">
-      <div class="cup-icon"><mat-icon>cake</mat-icon></div>
-      <div class="cup-info">
-        <span>Nome</span>
-        <span>Estoque: 10</span>
+    <ng-container *ngFor="let item of objetos">
+      <div class="cupcake-list-item">
+        <div class="cup-icon"><mat-icon>cake</mat-icon></div>
+        <div class="cup-info">
+          <span>{{item.id + ' | ' + item.nome }}</span>
+          <span>Estoque: {{item.qtde}}</span>
+        </div>
+        <div class="cup-price">
+          <span>{{item.valor.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}}</span>
+        </div>
       </div>
-      <div class="cup-price">
-        <span>R$ 10,00</span>
-      </div>
-    </div>
-
+    </ng-container>
 
   </div>
 
