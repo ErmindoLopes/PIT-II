@@ -1,0 +1,55 @@
+<div class="orders-list-wrap">
+
+  <div class="toolbar">
+    <h1> <mat-icon>receipt</mat-icon> Lista de Pedidos&nbsp;</h1>
+  </div>
+
+  <div class="list-content">
+
+
+
+
+    <mat-accordion>
+
+      <ng-container *ngFor="let item of objetos">
+
+        <mat-expansion-panel>
+
+          <mat-expansion-panel-header>
+            <mat-panel-title>{{'Pedido: ' + item.id + ' | Cliente: '+ item.user.email + ' | Endereço: '+item.endereco}}
+            </mat-panel-title>
+            <mat-panel-description>
+              TOTAL: {{totalPed(item)}}
+              <div class="tool-icons">
+                <mat-icon *ngIf="item.entregue" title="Pedido Entregue">local_shipping</mat-icon>
+                <mat-icon *ngIf="item.pago" title="Pedido Pago">paid</mat-icon>
+              </div>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+
+          <mat-list>
+            <mat-list-item>
+              <span matListItemTitle>Data: <b>{{item.data | date : 'dd/MM/yyyy hh:mm'}}</b></span>
+            </mat-list-item>
+            <mat-list-item>
+              <span matListItemTitle>Forma de Pagamento:<b> {{item.forma_pgto }}</b></span>
+            </mat-list-item>
+            <mat-list-item>
+              <span matListItemTitle><b>Itens</b></span>
+
+              <span matListItemLine *ngFor="let cup of item.items">{{cup.cupcake.nome + ' | '+ cup.qtde + ' x '+ cup.valor.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}}</span>
+            </mat-list-item>
+
+          </mat-list>
+
+        </mat-expansion-panel>
+
+      </ng-container>
+
+
+    </mat-accordion>
+
+
+  </div>
+
+</div>

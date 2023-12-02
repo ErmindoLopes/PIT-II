@@ -6,15 +6,15 @@ import { Order } from './order.entity';
 export class Item {
   @PrimaryGeneratedColumn('increment')
   id: number;
-  
+
   @Column()
   qtde: number;
 
   @Column()
-  valor:number;
-  
+  valor: number;
+
   //cupcake
-  @ManyToOne(() => Cupcake, (cupcake) => cupcake.items)
+  @ManyToOne(() => Cupcake, (cupcake) => cupcake.items, { eager: true })
   cupcake: Cupcake
 
 

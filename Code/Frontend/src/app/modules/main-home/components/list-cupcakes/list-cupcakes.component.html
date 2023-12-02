@@ -1,0 +1,27 @@
+<div class="cupcakes-list-wrap">
+
+  <div class="toolbar">
+    <button (click)="add()">Adicionar Cupcake</button>
+  </div>
+
+  <div class="list-content">
+
+    <ng-container *ngFor="let item of objetos">
+      <div class="cupcake-list-item">
+        <div class="cup-icon"><mat-icon>cake</mat-icon></div>
+        <div class="cup-info">
+          <span>{{item.id + ' | ' + item.nome }}</span>
+          <span>Estoque: {{item.qtde}}</span>
+        </div>
+        <div class="cup-price">
+          <span>{{item.valor.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}}</span>
+        </div>
+        <div class="cup-del">
+          <mat-icon (click)="del(item)">do_not_disturb_on</mat-icon>
+        </div>
+      </div>
+    </ng-container>
+
+  </div>
+
+</div>

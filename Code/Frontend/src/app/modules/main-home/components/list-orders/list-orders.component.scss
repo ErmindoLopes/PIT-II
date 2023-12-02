@@ -1,0 +1,146 @@
+:host{
+  width: 100%;
+  height: 100%;
+
+}
+
+.orders-list-wrap{
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
+  position: relative;
+
+  .toolbar{
+    width: 100%;
+    height: 3rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    background-color: rgba($color: #cecece, $alpha: 0.3);
+    border-radius: 4px;
+
+    button{
+      margin-right: 1rem;
+      height: 2rem;
+
+      cursor: pointer;
+    }
+
+
+  }
+
+  .list-content{
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    flex: 1;
+    gap: 1rem;
+
+
+    overflow-y: auto;
+
+    .order-list-item{
+      width: 100%;
+      height: 4rem;
+
+      background-color: rgba($color: white, $alpha: 0.7);
+      border-radius: 4px;
+
+      &:first-of-type{
+        margin-top: 2rem;;
+      }
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+
+      .order-icon{
+        width: 3rem;
+
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+      }
+
+      .order-info{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+
+        flex: 1;
+
+        > span {
+          font-size: 1.3rem;
+          font-weight: 900;
+
+        }
+        > span + span{
+          font-size: 0.8rem;
+          font-weight: 500;
+
+        }
+      }
+
+      .order-price{
+        width: 5rem;
+
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+      }
+
+      .order-del{
+        width: 2rem;
+
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        color: red;
+
+        cursor: pointer;
+      }
+
+    }
+
+    mat-accordion{
+      width: 100%;
+
+      margin-top: 2rem;
+    }
+
+    .mat-expansion-panel-header-title  {
+      align-items: center;
+      flex: 3;
+    }
+
+    .mat-expansion-panel-header-description {
+      width: 20%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex: 1;
+    }
+
+    .tool-icons{
+      display: flex;
+      gap: .5rem;
+    }
+
+
+  }
+
+}
