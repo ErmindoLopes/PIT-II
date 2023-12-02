@@ -1,5 +1,3 @@
-// ref https://www.devmedia.com.br/subindo-uma-aplicacao-angular-para-o-heroku/40260
-
 // const compression = require('compression');
 const express = require('express');
 const path = require('path');
