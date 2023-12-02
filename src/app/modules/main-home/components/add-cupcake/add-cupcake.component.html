@@ -1,0 +1,50 @@
+<div class="page-wrapper">
+  <header>
+    <div class="title">
+      <h2><mat-icon>cake</mat-icon>{{title | titlecase}}</h2>
+    </div>
+  </header>
+
+  <main>
+
+    <div class="main-form" [formGroup]='mainForm'>
+
+      <div class="form-field-wrapper">
+        <mat-form-field floatLabel='always'>
+          <input matInput type="text" formControlName="nome">
+          <mat-icon matSuffix>tag</mat-icon>
+          <mat-hint>Nome do Cupcake *</mat-hint>
+        </mat-form-field>
+      </div>
+
+      <div class="form-field-wrapper">
+        <mat-form-field floatLabel='always'>
+          <input matInput type="number" formControlName="qtde">
+          <mat-icon matSuffix>123</mat-icon>
+          <mat-hint>Qtde em Estoque *</mat-hint>
+        </mat-form-field>
+      </div>
+
+      <div class="form-field-wrapper">
+        <mat-form-field floatLabel='always'>
+          <input matInput type="number" formControlName="valor">
+          <mat-icon matSuffix>attach_money</mat-icon>
+          <mat-hint>Valor *</mat-hint>
+        </mat-form-field>
+      </div>
+
+
+    </div>
+
+  </main>
+
+  <footer>
+    <div>
+      <h5><small><span class="f-red">*</span> campos obrigatórios</small></h5>
+    </div>
+    <div class="btns">
+      <button type="button" class='icon-btn' (click)='close()'><span class="has-icon" data-icon=''>{{ 'Cancelar' |  titlecase }}</span></button>
+      <button type="button" class='icon-btn hover-green' (click)='ok()'><span class="has-icon" data-icon='check_circle'>{{ 'Ok' | titlecase }}</span></button>
+    </div>
+  </footer>
+</div>

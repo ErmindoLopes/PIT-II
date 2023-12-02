@@ -1,7 +1,7 @@
 <div class="cupcakes-list-wrap">
 
   <div class="toolbar">
-    <button>Adicionar Cupcake</button>
+    <button (click)="add()">Adicionar Cupcake</button>
   </div>
 
   <div class="list-content">
@@ -15,6 +15,9 @@
         </div>
         <div class="cup-price">
           <span>{{item.valor.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}}</span>
+        </div>
+        <div class="cup-del">
+          <mat-icon (click)="del(item)">do_not_disturb_on</mat-icon>
         </div>
       </div>
     </ng-container>

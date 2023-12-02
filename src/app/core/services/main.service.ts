@@ -46,5 +46,42 @@ export class MainService{
 
   }
 
+  async delCupcake(item:any): Promise<any> {
+
+    const auth = { 'authorization': `bearer `+ this.sessionStorage.retrieve('userToken') };
+
+    let ret: any;
+    const url = `${gateway}/cupcakes/${item.id}`;
+    ret = await lastValueFrom(this.http.delete(url, { headers: { ...auth } }))
+      .then(async (resp: any) => {
+        return resp;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+    return ret;
+
+  }
+
+  async addCupcake(item:any): Promise<any> {
+
+    const auth = { 'authorization': `bearer `+ this.sessionStorage.retrieve('userToken') };
+
+    let ret: any;
+    const data = item;
+    const url = `${gateway}/cupcakes`;
+    ret = await lastValueFrom(this.http.post(url, data, { headers: { ...auth } }))
+      .then(async (resp: any) => {
+        return resp;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+    return ret;
+
+  }
+
 
 }

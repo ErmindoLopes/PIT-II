@@ -8,6 +8,7 @@ import { MainHomeRoutingModule } from './main-home-routing.module';
 import { MainHomeComponent } from './main-home.component';
 import { ListCupcakesComponent } from './components/list-cupcakes/list-cupcakes.component';
 import { ListOrdersComponent } from './components/list-orders/list-orders.component';
+import { AddCupcakeComponent } from './components/add-cupcake/add-cupcake.component';
 
 
 
@@ -15,7 +16,8 @@ import { ListOrdersComponent } from './components/list-orders/list-orders.compon
   declarations: [
     MainHomeComponent,
     ListCupcakesComponent,
-    ListOrdersComponent
+    ListOrdersComponent,
+    AddCupcakeComponent
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,47 @@
+@use "sass:map";
+
+$light-colors: (
+  //surface bg
+  "primary-v1": #f5f5f5,
+  //menu bg
+  "primary-v2": #ededf5,
+  //header bg
+  //"primary-v3": #c4b7d7,
+  "primary-v3": #AAD2DA,
+  //footer bg
+  "secondary-v1": #087B9C,
+  "secondary-v2": #32B5C1,
+  "secondary-v3": #2B354B,
+  "secondary-v4": #705697,
+
+  "text-v1": #2B354B,
+  "text-v2": #f2f0d0,
+  "text-v3": #087B9C,
+  "text-v4": #191a21,
+  "text-v5": #c6c6c6,
+
+  "danger": #F44437,
+  "warning": #d9a13b,
+  "success": #008000,
+  "info": #65d3e4
+);
+
+$primary-v1: map.get($light-colors, "primary-v1") !default;
+$primary-v2: map.get($light-colors, "primary-v2") !default;
+$primary-v3: map.get($light-colors, "primary-v3") !default;
+
+$secondary-v1: map.get($light-colors, "secondary-v1") !default;
+$secondary-v2: map.get($light-colors, "secondary-v2") !default;
+$secondary-v3: map.get($light-colors, "secondary-v3") !default;
+$secondary-v4: map.get($light-colors, "secondary-v4") !default;
+
+$text-v1: map.get($light-colors, "text-v1") !default;
+$text-v2: map.get($light-colors, "text-v2") !default;
+$text-v3: map.get($light-colors, "text-v3") !default;
+$text-v4: map.get($light-colors, "text-v4") !default;
+$text-v5: map.get($light-colors, "text-v5") !default;
+
+$danger: map.get($light-colors, "danger") !default;
+$warning: map.get($light-colors, "warning") !default;
+$success: map.get($light-colors, "success") !default;
+$info: map.get($light-colors, "info") !default;
